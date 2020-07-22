@@ -6,7 +6,7 @@ public class BallDestroy : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<Ball>())
+        if (collision.gameObject.tag =="Ball")
         {
             Destroy(collision.gameObject);
             if (gameObject.tag == "Block")
@@ -17,4 +17,5 @@ public class BallDestroy : MonoBehaviour
             }
         }
     }
+    
 }

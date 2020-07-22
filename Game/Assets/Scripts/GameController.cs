@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -9,8 +10,12 @@ public class GameController : MonoBehaviour
     public static int countBlock;
 
     public GameObject PauseMenu;
-    public GameObject GameMenu;
+    public GameObject PauseButton;
+    public GameObject ExitButton;
+    public Text PlayButtonText;
     public TextMesh TextLevel;
+
+    private GameObject _player;
     private static int level = 1;
 
 
@@ -19,6 +24,12 @@ public class GameController : MonoBehaviour
         Score = 0;
         TextLevel.text = $"Level {level}";
         countBlock = GameObject.FindGameObjectsWithTag("Block").Length;
+        _player = GameObject.FindWithTag("Player");
+        if (level == 1)
+        {
+            PlayButtonText.text = "Start play";
+            Pause();
+        }
     }
  
 
@@ -32,18 +43,28 @@ public class GameController : MonoBehaviour
 
     public void Play()
     {
+        PlayButtonText.text = "Resume";
+        _player.SetActive(true);
         PauseMenu.SetActive(false);
-        GameMenu.SetActive(true);
+        PauseButton.SetActive(true);
         Time.timeScale = 1;
     }
+   
     public void Exit()
     {
-        Application.Quit();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#elif UNITY_WEBGL
+        ExitButton.SetActive(false);
+#else
+         Application.Quit();
+#endif
     }
     public void Pause()
     {
+        _player.SetActive(false);
         PauseMenu.SetActive(true);
-        GameMenu.SetActive(false);
+        PauseButton.SetActive(false);
         Time.timeScale = 0;
     }
 
