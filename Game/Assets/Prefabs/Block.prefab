@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 8428720253447433304}
   - component: {fileID: 8428720253447433305}
   - component: {fileID: 8428720253447433306}
-  - component: {fileID: 8428720253447433307}
+  - component: {fileID: 3377646448148446552}
   m_Layer: 0
   m_Name: Block
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,7 +92,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8428720253447433307
+--- !u!114 &3377646448148446552
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,9 +101,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8428720253447433309}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acf4e537cfc957647b6f8bd35478bb37, type: 3}
+  m_Script: {fileID: 11500000, guid: 05b5d024751edcb4fa909735066cb304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerContainer: {fileID: 8428720253447433308}
-  prefabBall: {fileID: 6762453457251225906, guid: a1746459ab82fe64e81da405fbf9d951,
-    type: 3}

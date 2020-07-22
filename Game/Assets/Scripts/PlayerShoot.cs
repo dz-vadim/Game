@@ -33,13 +33,15 @@ public class PlayerShoot : MonoBehaviour
 
             speed = (mouseInWorld - transform.position) * Power;
             transform.rotation = Quaternion.LookRotation(speed);
+            if (Input.GetMouseButton(0))
             Trajectory.ShowTrajectory(transform.position, mouseInWorld);           
         }
         if ((Input.GetMouseButtonUp(0))&&(GameObject.FindGameObjectWithTag("Ball")==null))
-            {
-                Rigidbody bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-                bullet.AddForce(speed, ForceMode.VelocityChange);
-            }
+        {
+            Rigidbody bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            bullet.AddForce(speed, ForceMode.VelocityChange);
+            Trajectory.HideTrajectory();
+        }
         
     }
 }

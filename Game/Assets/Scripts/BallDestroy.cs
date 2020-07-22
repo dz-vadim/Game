@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockController : MonoBehaviour
+public class BallDestroy : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.GetComponent<Ball>())
         {
             Destroy(collision.gameObject);
-            Destroy(gameObject);
+            if (gameObject.tag == "Block")
+            {
+                Destroy(gameObject);
+                GameController.Score++;
+                GameController.countBlock--;
+            }
         }
     }
 }

@@ -14,9 +14,15 @@ public class TrajectoryRenderer : MonoBehaviour
 
     public void ShowTrajectory(Vector3 startPoint,Vector3 endPoint)
     {
+        lineRendererComponennt.enabled = true;
         Vector3[] points = new Vector3[2] { startPoint, endPoint};
 
         lineRendererComponennt.positionCount = points.Length;
         lineRendererComponennt.SetPositions(points);
+    }
+
+    public void HideTrajectory()
+    {
+        lineRendererComponennt.enabled = false;
     }
 }
