@@ -30,6 +30,7 @@ public class GameController : MonoBehaviour
             PlayButtonText.text = "Start play";
             Pause();
         }
+        else Play();
     }
  
 
