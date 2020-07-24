@@ -1,4 +1,4 @@
-﻿using Appodeal.Unity.Editor;
+﻿// using Appodeal.Unity.Editor;
 using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEngine;
@@ -12,7 +12,7 @@ namespace AppodealAds.Unity.Editor
         {
             if (target.ToString() == "iOS" || target.ToString() == "iPhone")
             {
-                iOSPostprocessUtils.PrepareProject(path);
+                //iOSPostprocessUtils.PrepareProject(path);
             }
         }
     }
